@@ -33,7 +33,8 @@ A modern, responsive portfolio website built with vanilla HTML, CSS, and JavaScr
 shadowcoding/
 ├── index.html              # Home page
 ├── portfolio.html          # Portfolio page
-├── contact.html           # Contact page
+├── contact.html            # Contact page
+├── projects                # Contains projects
 ├── assets/
 │   ├── css/
 │   │   └── styles.css     # Main stylesheet
