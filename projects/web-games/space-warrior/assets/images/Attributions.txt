@@ -1,0 +1,20 @@
+GreenPlayer:
+    Credit wubitog and Skorpio ( http://opengameart.org/users/skorpio ) or just credit Skorpio since it is all his artwork to my knowledge.
+    https://opengameart.org/content/spaceship-6
+
+Enemies:
+    Red:
+        Credit wubitog and Skorpio ( http://opengameart.org/users/skorpio ) or just credit Skorpio since it is all his artwork to my knowledge.
+        https://opengameart.org/content/spaceship-4
+    blueSpike & greenSpike:
+        Credit wubitog and Skorpio ( http://opengameart.org/users/skorpio ) or just credit Skorpio since it is all his artwork to my knowledge.
+        https://opengameart.org/content/spaceship-8
+
+Explosions:
+    M484ExplosionSet1.png:
+        Master484: http://m484games.ucoz.com/
+        https://opengameart.org/content/explosion-set-1-m484-games
+
+Sound On/Off:
+    oglsdl
+    https://opengameart.org/content/sound-on-sound-off

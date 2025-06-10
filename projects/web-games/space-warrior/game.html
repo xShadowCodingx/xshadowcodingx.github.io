@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Warrior</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div id="gameContainer">
+        
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- Menu Screen -->
+        <div id="menu">
+            <img src="assets/images/SpaceWarrior.png" alt="Space Warrior" class="title-image">
+            <p>Move with mouse/touch and click/tap to shoot</p>
+            <button id="startButton">Start Game</button>
+        </div>
+
+        <!-- Game UI -->
+        <div id="score">Score: 0</div>
+        <div id="health">Health: 100</div>
+        <div id="pausedIndicator">
+            <div class="paused-text">PAUSED</div>
+            <img src="assets/images/SpaceWarrior.png" alt="Space Warrior" class="title-image">
+            <button id="returnToTitle">Return to Title</button>
+        </div>
+        <button id="soundButton">
+            <img id="soundIcon" src="assets/images/soundonoff.png" alt="Sound">
+        </button>
+        <button id="pauseButton">Pause</button>
+
+        <!-- Game Over Modal -->
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <h2>Game Over</h2>
+                <p id="finalScore">Your Score: 0</p>
+                <button id="playAgain">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/scripts/audio.js"></script>
+    <script src="assets/scripts/explosion.js"></script>
+    <script src="assets/scripts/projectile.js"></script>
+    <script src="assets/scripts/enemy.js"></script>
+    <script src="assets/scripts/player.js"></script>
+    <script src="assets/scripts/game.js"></script>
+</body>
+</html>

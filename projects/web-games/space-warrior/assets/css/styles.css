@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+    font-family: Arial, sans-serif;
+}
+
+#gameContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#gameCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+}
+
+#menu h1 {
+    color: #ffffff;
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+#menu p {
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+#menu button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+#menu button:hover {
+    background: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #4CAF50;
+}
+
+.menu-content {
+    text-align: center;
+    pointer-events: none;
+}
+
+#highScoresBtn {
+    pointer-events: auto;
+    margin-top: 20px;
+}
+
+.title-image {
+    max-width: 80%;
+    max-height: 40vh;
+    margin-bottom: 20px;
+    pointer-events: none;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.instructions {
+    color: #fff;
+    font-size: 24px;
+    margin: 20px 0;
+    pointer-events: none;
+}
+
+#score, #health {
+    position: fixed;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    z-index: 5;
+}
+
+#score {
+    top: 10px;
+    left: 10px;
+}
+
+#health {
+    top: 10px;
+    right: 10px;
+}
+
+#pausedIndicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    padding-top: 100vh;
+    transform: translateY(-50%);
+}
+
+#pausedIndicator .paused-text {
+    color: #fff;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    animation: pausePulse 2s infinite;
+    text-align: center;
+    width: 100%;
+}
+
+@keyframes pausePulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#pausedIndicator .title-image {
+    max-width: 60%;
+    max-height: 30vh;
+    margin-bottom: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: none;
+}
+
+#returnToTitle {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+#returnToTitle:hover {
+    background: #45a049;
+}
+
+#soundButton {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 5;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+}
+
+#soundIcon {
+    width: 64px;
+    height: 32px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+#soundIcon.muted {
+    transform: translateX(-32px);
+}
+
+#pauseButton {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #fff;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #pauseButton {
+        display: block;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 20;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    min-width: 300px;
+}
+
+#highScoresList {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.high-score-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #333;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#healthBar {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    height: 20px;
+    background-color: #333;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+#healthLabel {
+    position: fixed;
+    top: 35px;
+    right: 20px;
+    color: #00ff00;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 1000;
+}
+
+#healthFill {
+    width: 100%;
+    height: 100%;
+    background-color: #00ff00;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+#healthFill.health-90 { background-color: #00ff00; }
+#healthFill.health-85 { background-color: #1aff1a; }
+#healthFill.health-80 { background-color: #33ff33; }
+#healthFill.health-75 { background-color: #4dff4d; }
+#healthFill.health-70 { background-color: #66ff66; }
+#healthFill.health-65 { background-color: #80ff80; }
+#healthFill.health-60 { background-color: #99ff99; }
+#healthFill.health-55 { background-color: #b3ffb3; }
+#healthFill.health-50 { background-color: #ccffcc; }
+#healthFill.health-45 { background-color: #e6ffe6; }
+#healthFill.health-40 { background-color: #fff2f2; }
+#healthFill.health-35 { background-color: #ffe6e6; }
+#healthFill.health-30 { background-color: #ffd9d9; }
+#healthFill.health-25 { background-color: #ffcccc; }
+#healthFill.health-20 { background-color: #ffbfbf; }
+#healthFill.health-15 { background-color: #ffb3b3; }
+#healthFill.health-10 { background-color: #ffa6a6; }
+#healthFill.health-5 { background-color: #ff9999; }
+#healthFill.health-0 { background-color: #ff0000; }
+
+#gameOverModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 5;
+}
+
+#gameOverModal .modal-content {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+#gameOverModal h2 {
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+#gameOverModal p {
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+#playAgain {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+#playAgain:hover {
+    background: #45a049;
+} 

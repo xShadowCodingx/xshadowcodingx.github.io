@@ -1,0 +1,19 @@
+Explosion:
+    TinyWorlds
+    https://opengameart.org/content/explosion-0
+
+enemyLaser:
+    Mobeyee Sounds - mobeyee.com
+    https://opengameart.org/content/laser-shot-0
+
+playerLaser:
+    dklon
+    https://opengameart.org/content/laser-fire
+
+backgroundMusic:
+    Nia Mi
+    https://opengameart.org/content/fun-background
+
+gameOver:
+    CleytonKauffman - https://soundcloud.com/cleytonkauffman
+    https://opengameart.org/content/game-over-theme-ii
